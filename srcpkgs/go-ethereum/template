@@ -1,0 +1,20 @@
+# Template build file for 'go-ethereum'
+pkgname=go-ethereum
+version=1.4.6
+revision=1
+build_style=gnu-makefile
+short_desc="The Go command line for Ethereum"
+maintainer="Abel Vdo <vdo@greyfaze.net>"
+license="LGPL-3"
+homepage="https://ethereum.github.io/go-ethereum/"
+depends="leveldb"
+distfiles="https://github.com/ethereum/${pkgname}/archive/v${version}.tar.gz"
+checksum=3babd8b2279eea726a57c2e0de55e66c2ddc360a42a8e84bc12dc2924e452a57
+hostmakedepends="go gmp"
+nopie=yes
+
+do_install() {
+	vbin build/bin/geth
+	vlicense COPYING
+}
+
